@@ -1,0 +1,11 @@
+$OpenBSD$
+--- drivers/SCsub.orig	Wed Nov 19 17:33:15 2014
++++ drivers/SCsub	Mon Nov 24 22:52:04 2014
+@@ -7,6 +7,7 @@ Export('env')
+ 
+ SConscript('unix/SCsub');
+ SConscript('alsa/SCsub');
++SConscript('ao/SCsub');
+ SConscript('windows/SCsub');
+ SConscript('gles2/SCsub');
+ SConscript('gles1/SCsub');

@@ -1,0 +1,12 @@
+$OpenBSD$
+--- platform/x11/platform_config.h.orig	Wed Nov 19 17:33:15 2014
++++ platform/x11/platform_config.h	Mon Nov 24 22:52:04 2014
+@@ -29,7 +29,7 @@
+ #ifdef __linux__
+ #include <alloca.h>
+ #endif
+-#ifdef __FreeBSD__
++#if defined(__FreeBSD__) || defined(__OpenBSD__)
+ #include <stdlib.h>
+ #endif
+ 

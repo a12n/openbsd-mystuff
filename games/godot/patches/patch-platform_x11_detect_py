@@ -1,0 +1,32 @@
+$OpenBSD$
+--- platform/x11/detect.py.orig	Wed Nov 19 17:33:15 2014
++++ platform/x11/detect.py	Mon Nov 24 22:52:04 2014
+@@ -1,6 +1,7 @@
+ 
+ import os
+ import sys	
++import platform
+ 
+ 
+ def is_active():
+@@ -111,11 +112,18 @@ def configure(env):
+ 	env.ParseConfig('pkg-config freetype2 --cflags --libs')
+ 	env.Append(CCFLAGS=['-DFREETYPE_ENABLED'])
+ 
++
++	if env['ao'] == 'yes':
++		env.ParseConfig('pkg-config ao --cflags --libs')
++		env.Append(CPPFLAGS=['-DAO_ENABLED'])
++
+ 	
+ 	env.Append(CPPFLAGS=['-DOPENGL_ENABLED','-DGLEW_ENABLED'])
+-	env.Append(CPPFLAGS=["-DALSA_ENABLED"])
++	if platform.platform() == 'Linux':
++		env.Append(CPPFLAGS=["-DALSA_ENABLED"])
++		env.Append(LIBS=['asound'])
+ 	env.Append(CPPFLAGS=['-DX11_ENABLED','-DUNIX_ENABLED','-DGLES2_ENABLED','-DGLES1_ENABLED','-DGLES_OVER_GL'])
+-	env.Append(LIBS=['GL', 'GLU', 'pthread','asound','z']) #TODO detect linux/BSD!
++	env.Append(LIBS=['GL', 'GLU', 'pthread', 'z'])
+ 	#env.Append(CPPFLAGS=['-DMPC_FIXED_POINT'])
+ 
+ #host compiler is default..
