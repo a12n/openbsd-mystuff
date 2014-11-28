@@ -1,7 +1,7 @@
 $OpenBSD$
---- drivers/ao/audio_driver_ao.cpp.orig	Mon Nov 24 22:52:04 2014
-+++ drivers/ao/audio_driver_ao.cpp	Mon Nov 24 22:52:04 2014
-@@ -0,0 +1,156 @@
+--- drivers/ao/audio_driver_ao.cpp.orig	Fri Nov 28 22:02:24 2014
++++ drivers/ao/audio_driver_ao.cpp	Fri Nov 28 22:02:34 2014
+@@ -0,0 +1,160 @@
 +/*************************************************************************/
 +/*  audio_driver_ao.cpp                                                  */
 +/*************************************************************************/
@@ -31,6 +31,8 @@ $OpenBSD$
 +/* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
 +/*************************************************************************/
 +#include "audio_driver_ao.h"
++
++#ifdef AO_ENABLED
 +
 +#include "globals.h"
 +#include "os/os.h"
@@ -158,3 +160,5 @@ $OpenBSD$
 +AudioDriverAO::~AudioDriverAO() {
 +	ao_shutdown();
 +};
++
++#endif
