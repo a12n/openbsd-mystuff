@@ -1,6 +1,6 @@
 # $OpenBSD: $
 
-VSN = 1.0devel
+VSN = 20141128
 COMMENT = fully featured game engine
 
 CATEGORIES = devel games
