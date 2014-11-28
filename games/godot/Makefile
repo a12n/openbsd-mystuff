@@ -24,7 +24,17 @@ LIB_DEPENDS = audio/libao
 
 MODSCONS_FLAGS = ao=yes platform=x11 target=release_debug
 
+.include <bsd.port.arch.mk>
+
+.for _m in ${MACHINE_ARCH}
+.  if !empty(LP64_ARCHS:M${_m})
+BITS =	64
+.  endif
+.endfor
+BITS ?=	32
+
 do-install:
-	${INSTALL_PROGRAM} ${WRKBUILD}/bin/godot.x11.opt.tools.64 ${PREFIX}/bin/godot
+	${INSTALL_PROGRAM} ${WRKBUILD}/bin/godot.x11.opt.tools.${BITS}	\
+		${PREFIX}/bin/godot
 
 .include <bsd.port.mk>
