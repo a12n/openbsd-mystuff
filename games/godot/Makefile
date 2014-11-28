@@ -9,8 +9,6 @@ HOMEPAGE = http://www.godotengine.org/
 
 # MIT
 PERMIT_PACKAGE_CDROM = Yes
-PERMIT_PACKAGE_FTP = Yes
-PERMIT_DISTFILES_FTP = Yes
 
 GH_ACCOUNT = okamstudio
 GH_PROJECT = godot
