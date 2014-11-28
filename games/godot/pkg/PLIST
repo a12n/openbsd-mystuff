@@ -1,2 +1,8 @@
 @comment $OpenBSD$
 @bin bin/godot
+share/blender/
+share/blender/scripts/
+share/blender/scripts/addons/
+share/blender/scripts/addons/io_scene_dae/
+share/blender/scripts/addons/io_scene_dae/__init__.py
+share/blender/scripts/addons/io_scene_dae/export_dae.py

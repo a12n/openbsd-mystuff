@@ -36,5 +36,8 @@ BITS ?=	32
 do-install:
 	${INSTALL_PROGRAM} ${WRKBUILD}/bin/godot.x11.opt.tools.${BITS}	\
 		${PREFIX}/bin/godot
+	${INSTALL_DATA_DIR} ${PREFIX}/share/blender/scripts/addons
+	cd ${WRKDIST}/tools/export/blender25; tar cf - io_scene_dae | tar xf - -C \
+		${PREFIX}/share/blender/scripts/addons/
 
 .include <bsd.port.mk>
