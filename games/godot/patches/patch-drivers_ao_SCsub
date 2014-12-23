@@ -1,9 +1,0 @@
-$OpenBSD$
---- drivers/ao/SCsub.orig	Mon Nov 24 22:52:04 2014
-+++ drivers/ao/SCsub	Mon Nov 24 22:52:04 2014
-@@ -0,0 +1,5 @@
-+Import('env')
-+
-+env.add_source_files(env.drivers_sources,"*.cpp")
-+
-+Export('env')
