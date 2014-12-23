@@ -1,6 +1,6 @@
 # $OpenBSD: $
 
-VSN = 20141128
+VSN = 20141208
 COMMENT = fully featured game engine
 
 CATEGORIES = devel games
@@ -12,7 +12,7 @@ PERMIT_PACKAGE_CDROM = Yes
 
 GH_ACCOUNT = okamstudio
 GH_PROJECT = godot
-GH_COMMIT = d70e16f72f2db8c299279fc2903f4308191f142e
+GH_COMMIT = be4e40e90a5a322f6a7cec4893854ef5b15db600
 
 DISTNAME = ${GH_PROJECT}-${VSN}
 
