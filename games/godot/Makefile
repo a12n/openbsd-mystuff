@@ -1,6 +1,6 @@
 # $OpenBSD: $
 
-VSN = 20150105
+VSN = 20150115
 COMMENT = fully featured game engine
 
 CATEGORIES = devel games
@@ -12,7 +12,7 @@ PERMIT_PACKAGE_CDROM = Yes
 
 GH_ACCOUNT = a12n
 GH_PROJECT = godot
-GH_COMMIT = a7875c586af74302584544d777b189f4cb85c393
+GH_COMMIT = d6998995b54fd4fed83eef9db3bbb45fa60565db
 
 DISTNAME = ${GH_PROJECT}-${VSN}
 
@@ -22,7 +22,7 @@ WANTLIB += crypto freetype m pthread pthread-stubs ssl stdc++ xcb z
 MODULES = devel/scons
 LIB_DEPENDS = audio/libao
 
-MODSCONS_FLAGS = ao=yes platform=x11 target=release_debug
+MODSCONS_FLAGS = ao=yes platform=x11 pulseaudio=no target=release_debug
 
 .include <bsd.port.arch.mk>
 
