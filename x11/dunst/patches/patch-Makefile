@@ -1,0 +1,34 @@
+$OpenBSD$
+--- Makefile.orig	Wed Jul 30 00:16:43 2014
++++ Makefile	Tue Dec  1 00:20:38 2015
+@@ -63,21 +63,21 @@ dunst.1: README.pod
+ 	pod2man --name=dunst -c "Dunst Reference" --section=1 --release=${VERSION} $< > $@
+ 
+ service:
+-	@sed "s|##PREFIX##|$(PREFIX)|" org.knopwob.dunst.service.in > org.knopwob.dunst.service
++	@sed "s|##PREFIX##|$(TRUEPREFIX)|" org.knopwob.dunst.service.in > org.knopwob.dunst.service
+ 
+ install: all
+-	@echo installing executables to ${DESTDIR}${PREFIX}/bin
+-	mkdir -p ${DESTDIR}${PREFIX}/bin
+-	cp -f dunst ${DESTDIR}${PREFIX}/bin
+-	chmod 755 ${DESTDIR}${PREFIX}/bin/dunst
++	@echo installing executables to ${DESTDIR}${TRUEPREFIX}/bin
++	mkdir -p ${DESTDIR}${TRUEPREFIX}/bin
++	cp -f dunst ${DESTDIR}${TRUEPREFIX}/bin
++	chmod 755 ${DESTDIR}${TRUEPREFIX}/bin/dunst
+ 	@echo installing manual pages to ${DESTDIR}${MANPREFIX}/man1
+ 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
+ 	cp -f dunst.1 ${DESTDIR}${MANPREFIX}/man1/
+ 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dunst.1
+-	mkdir -p "${DESTDIR}${PREFIX}/share/dunst"
+-	 cp -f dunstrc ${DESTDIR}${PREFIX}/share/dunst
+-	mkdir -p "${DESTDIR}${PREFIX}/share/dbus-1/services/"
+-	cp -vf org.knopwob.dunst.service "${DESTDIR}${PREFIX}/share/dbus-1/services/org.knopwob.dunst.service"
++	mkdir -p "${DESTDIR}${TRUEPREFIX}/share/examples/dunst"
++	 cp -f dunstrc ${DESTDIR}${TRUEPREFIX}/share/examples/dunst
++	mkdir -p "${DESTDIR}${TRUEPREFIX}/share/dbus-1/services/"
++	cp -f org.knopwob.dunst.service "${DESTDIR}${TRUEPREFIX}/share/dbus-1/services/org.knopwob.dunst.service"
+ 
+ uninstall:
+ 	@echo removing executables from ${DESTDIR}${PREFIX}/bin
